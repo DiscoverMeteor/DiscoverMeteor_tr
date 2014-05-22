@@ -11,7 +11,7 @@ Benim için zihinsel bir deney yapın. Bilgisayarınızın iki farklı penceresi
 
 Şimdi, iki pencereden birine tıklayın ve bir dosya silin. Bu dosya diğer pencereden de kayboldu mu?
 
-Kaybolduğunu bilmek için bu adımları uygulamanıza gerek yok. Yerel dosya sistemimizde bir değişiklik yaptığımızda, değişiklik her yere, yenileme veya geri çağırma yapmaksızın uygulanır. Sadece olur. 
+Kaybolduğunu bilmek için bu adımları uygulamanıza gerek yok. Yerel dosya sistemimizde bir değişiklik yaptığımızda, değişiklik her yere, yenileme veya geri çağırma yapmaksızın uygulanır. Bu kadar basit. 
 
 Oysa, hadi aynı senaryonun web'de nasıl gerçekleşeceğini düşünelim. Diyelim ki, aynı WordPress admin sayfasını iki farklı tarayıcı penceresinde açtınız ve birinde yeni bir gönderi yarattınız. Bilgisayarınızın aksine, ne kadar beklerseniz bekleyin, diğer pencere bu değişikliği, sayfayı yenilemediğiniz sürece yansıtmayacaktır.
 
@@ -21,7 +21,7 @@ Ancak Meteor web'i gerçek zamanlı ve reaktif yaparak statükoya meydan okuyan,
 
 ### Meteor nedir?
 
-Meteor Node.js'in üzerine bina edilmiş gerçek zamanlı web uygulamaları geliştirmek amaçlı bir platformdur. Uygulamanızın veritabanı ve kullanıcı arayüzü arasında, iki tarafın senkronize olmasını sağlamak üzere konuşlanmıştır.
+Meteor Node.js'in üzerine bina edilmiş gerçek zamanlı web uygulamaları geliştirme amaçlı bir platformdur. Uygulamanızın veritabanı ve kullanıcı arayüzü arasında, iki tarafın senkronize olmasını sağlamak üzere konuşlanmıştır.
 
 Node.js üzerine inşaa edildiğine göre, Meteor hem istemci hem de sunucu tarafında Javascript kullanır. Daha da önemlisi Meteor, iki ortam arasında kod da paylaşabilir.
 
@@ -47,63 +47,65 @@ Kitabı okumayı bitirdiğinizde, daha ileri gitmek isterseniz, Telescope'un kod
 
 ### Bu kitap kimin için?
 
-One of our goals while writing the book was to keep things approachable and easy to understand. So you should be able to follow along even if you have no experience with Meteor, Node, MVC frameworks, or even server-side coding in general.
+Kitabı yazarken hedeflerimizden biri, herşeyin ulaşılabilir ve kolayca anlaşılır olmasını sağlamaktı. Dolayısıyla, Meteor, Node, MVC frameworkleri veya genel olarak server-side kodlama deneyiminiz olmasa da takip edebilmeniz lazım.
 
-On the other hand, we do assume familiarity with basic JavaScript syntax and concepts. But if you've ever hacked together some jQuery code or played around with the browser's developer console, you should be OK. 
+Öte yandan, basit Javascript sentaksı ve konseptlerine aşina olduğunuzu varsayıyoruz. Eğer biraz jQuery ile uğraşmışlığınız veya tarayıcınızın geliştirici konsoluyla oynamışlığınız varsa, problem yaşamamanız lazım.
 
 ### Yazarlar Hakkında
 
-In case you're wondering who we are and why you should trust us, here is a little more background on both of us.  
+Kim olduğumuzu merak ediyor ve neden bize güvenmeniz gerektiğini düşünüyorsanız, ikimizin özgeçmişi hakkında bilgiyi aşağıda bulabilirsiniz.
 
 <%= image "tom-photo.jpg", "portrait" %>
 
-**Tom Coleman** is one part of [Percolate Studio](http://percolatestudio.com/), a web development shop with a focus on quality and user experience. He's the co-creator of [Meteorite](https://github.com/oortcloud/meteorite) and the [Atmosphere](http://atmosphere.meteor.com) package repository, and is also one of the brains behind many other Meteor open-source projects (such as [Iron Router](https://github.com/EventedMind/iron-router)).
+**Tom Coleman** kalite ve kullanıcı deneyimine odaklanan bir web atölyesi olan [Percolate Studio](http://percolatestudio.com/)'un bir parçasıdır. [Meteorite](https://github.com/oortcloud/meteorite)'ın ve paket deposu [Atmosphere](http://atmosphere.meteor.com)'in yaratıcılarından biri ve aynı zamanda pek çok açık kaynak kodlu Meteor projesinin ([Iron Router](https://github.com/EventedMind/iron-router) gibi) arkasındaki beyinlerden biridir.
 
 <%= image "sacha-photo.jpg", "portrait" %>
 
 **Sacha Greif** has worked with startups such as [Hipmunk](http://hipmunk.com) and [RubyMotion](http://rubymotion.com) as a product and web designer. He's the creator of [Telescope](http://telesc.pe) and [Sidebar](http://sidebar.io) (which is based on Telescope), and is also the founder of [Folyo](http://folyo.me).
 
-### Chapters & Sidebars
+**Sacha Greif** [Hipmunk](http://hipmunk.com) ve [RubyMotion](http://rubymotion.com) gibi startup'larda ürün ve web tasarımcısı olarak çalışmıştır. [Telescope](http://telesc.pe) ve [Sidebar](http://sidebar.io)'ın (Telescope'dan baz alınmış) yaratıcısı ve [Folyo](http://folyo.me)'nun kurucusudur.
 
-////
+### Bölümler & Ek Bilgiler
 
-////
+Bu kitabın hem acemi Meteor kullanıcısı hem de ileri düzey programcılar için faydalı olmasını istedik, bu yüzden bölümleri iki kategoriye ayırdık: normal bölümler (1'den 14'e numaralandırılmış) ve ek bilgiler (.5 numaralar)
 
-////
+Normal bölümler size uygulamayı yapma yolunda eşlik edecek, ve sizi çok fazla detaya boğmadan en önemli basamakları açıklayarak en kısa sürede işlevsel olmanızı sağlamaya çalışacak.
 
-////
+Öte yandan, ek bilgi bölümleri Meteor'un karışık taraflarına değinecek ve arka planda gerçekten neler olduğu hakkında daha iyi bir fikir edinmenize yardımcı olacak.
 
-### Commits & Live Instances
+Eğer yeni başlıyorsanız, ek bilgi bölümlerini ilk okumanızda atlayabilir, ve Meteor'u biraz kurcaladıktan sonra tekrar geri dönebilirsiniz.
 
-////
+### Commitler & Canlı Örnekler 
 
-////
+Bir programcılık kitabını takip edip, birden kendi kodunuzun örneklerden farklılaştığını, hiç birşeyin artık çalışması gerektiği gibi çalışmadığını farketmekten kötüsü yoktur.
 
-<%= commit "11-2", "Display notifications in the header." %>
+Bunu engellemek için, [Microscope için bir GitHub reposu](https://github.com/DiscoverMeteor/Microscope) yarattık, ve her birkaç kod değişikliği için ilgili git commitine bağlantılar sağladık. Ek olarak, her commit uygulamanın ilgili commit için canlı örneğine bağlantı kuruyor, bu sayede yerel kopyanız ile kıyaslayabiliyorsunuz. İşte bunun nasıl birşeye benzediğine dair bir örnek:
 
-////
+<%= commit "11-2", "Başlıkta bildirimlerin görüntülenmesi." %>
 
-### A Few Other Resources
+Ama şuna dikkat etmek gerekir ki, bu commitleri sağlamamız, sadece bir 'git checkoutundan' diğerine gitmeniz gerektiği anlamına gelmiyor. Uygulamanızın kodunu manüel olarak yazmanız, çok daha iyi öğrenmenizi sağlayacaktır!
 
-////
+### Diğer birkaç kaynak
 
-////
+Eğer Meteor'un belli bir tarafı hakkında daha fazlasını öğrenmek isterseniz, [Meteor'un resmi dokümantasyonu](http://docs.meteor.com/) başlamak için en iyi yerdir.
+
+Sorunları giderme ve sorular için [Stack Overflow](http://stackoverflow.com/questions/tagged/meteor)'u ve canlı yardım isterseniz #meteor [IRC kanalı](https://webchat.freenode.net/)'nı tavsiye ederiz.
 
 <% note do %>
 
-### Do I Need Git?
+### Git'e ihtiyacım var mı?
 
-////
+Kitabı takip etmek için Git versiyon kontrolüne aşinalık kesin surette gerekli olmasa da, şiddetle tavsiye ederiz.
 
-////
+Hızla yol almak isterseniz size Nick Farina'nın [Git Düşündüğünüzden Daha Basit](http://nfarina.com/post/9868516270/git-is-simpler).'ini tavsiye ederiz.
 
-////
+Git konusunda yeni iseniz, aynı zamanda, komut satırını kullanmadan git repolarını klonlamanıza ve yönetmenize yarayan [GitHub for Mac](http://mac.github.com/) uygulamasını da tavsiye ediyoruz.
 
 <% end %>
 
-### Getting in Touch
+### Bize ulaşın 
 
-- ////
-- ////
-- ////
-- ////
+- Bize ulaşmak isterseniz, [hello@discovermeteor.com](mailto:hello@discovermeteor.com) adresinden mail atabiirsiniz.
+- Ek olarak, kitabın içeriğinde yazım hatası veya başka bir hataya rastlarsanız [bu GitHub reposundan hata bildirimi yaparak](https://github.com/DiscoverMeteor/book/issues) bize haber verin.
+- Microscope'un kodu hakkında bir probleme rastlarsanız, [Microscope'un reposundan hata bildirimi yapabilirsiniz](https://github.com/DiscoverMeteor/Microscope/issues).
+- Son olarak, diğer tüm sorularınız için bu uygulamanın yan panelinden bize yorum bırakabilirsiniz.
