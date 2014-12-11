@@ -7,25 +7,25 @@ contents: Meteor ve Meteorite Kurulumları | Meteor paketlerinin 5 farklı tipin
 paragraphs: 49
 ---
 
-////
-
-////
+ İlk izlenimler her zaman çok önemlidir, ve Meteor'un kurulumu da nispeten sancısız olmalı. Çoğu durumda uygulamanın kurulumu ve ayağa kalkması 5 dakikadan daha kısa sürer.
+ 
+ Meteor'a başlarken terminal penceremizi açıyoruz ve şunları yazıyoruz:
 
 ~~~bash
 $ curl https://install.meteor.com | sh
 ~~~
 
-////
+Bu işlem sisteminize 'meteor' çalıştırılabilir dosyasını kuracak ve kullanıma hazır hale getirecek.
 
 <% note do %>
 
 ### *Not* Meteor'un Kurulumu
 
-////
+Eğer meteor'u lokale kuramıyorsan (ya da kurmak istemiyorsan) sana [Nitrous.io](http://nitrous.io)'a bir göz atmanı öneriyoruz.
 
-////
+Nitrous.io uygulamanı hızlıca ayağa kaldırabildiğin ve kodlarını tarayıcıda düzenleyebildiğin bir servistir, ve biz ayarlarını nasıl yapacağın hakkında sana yardımcı olabilecek kısa bir açıklama hazırladık [a short guide](https://www.discovermeteor.com/blog/meteor-nitrous).
 
-////
+"Meteor kurulumu" bölümünü basitçe takip ettikten sonra bu bölümdeki "Basit bir uygulama yaratmak" kısmına geçebilirsin.
 
 <% end %>
  
@@ -74,15 +74,15 @@ $ sudo -H npm install -g meteorite
   
 <% end %>
 
-### Basit bir uygulama yaratalım
+### Basit bir uygulama yaratmak
 
-////
+Şu an meteor kurulumunu tamamladık, hadi bir uygulama yaratalım. Yapmamız gereken Meteor'un komut satırını kullanmak:
 
 ~~~bash
 $ mrt create microscope
 ~~~
 
-////
+Bu komut meteoru indirecek, ve basit kurulumunu hazırlayacak, böylece Meteor projesi senin için hazır. Herşey tamamlandıktan sonra göreceğin dizin şu şekilde olmalı `microscope/`:
 
 ~~~bash
 microscope.css  
