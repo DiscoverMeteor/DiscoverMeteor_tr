@@ -27,16 +27,16 @@ Meteor `deny` geriçağırımlarından başlayarak `allow` listesine gider ve he
 
 Uygulamalı bir örnek olarak iki tane `allow()` geriçağırımı olduğunu düşünelim: birinin `post`un giriş yapan kullanıcıya ait olup olmadığını, diğerinin de kullanıcının admin olup olmadığını kontrol ediyor olduğunu düşünelim. Eğer giriş yapan kullanıcı admin ise, herhangi `post`a değişiklik yapabilecektir, çünkü bu iki geriçağırımdan biri `true` dönecektir.
 
-### Latency Compensation
+### Gecikme Telafisi
 
-////
+Unutmayın ki veritabanında değişiklik yapan Methodlar (örneğin `.update()`) gecikme telafisinden geçer. Mesela kullanıcıya ait olmayan `post` tarayıcı konsolundan silindiğinde bu döküman lokal kolleksiyondan silindiği için post'un geçici olarak yok olduğunu görürüz. Fakat kısa bir süre sonra server tarafından dökümanın silinmediğini öğrenince bunun tekrardan geri geldiğini görürüz.
 
-////
+Genelde konsoldan yapılan değişiklikler problem değildir (ne de olsa kullanıcıların büyük bir kısmı tarayıcı konsolundan değişiklik yapmayacaklardır). Fakat bu tür değişikler kullanıcı arayüzünden kaynaklanmamalı. Örneğin, eğer kullanıcıya ait olmayan dökümanların silinmemesini istiyorsan kullanıcıya sil tuşunu göstermemen gerekir.
 
-////
+Dökümanlara ait gerekli izinleri (örneğin /lib klasörü altında kullanıcıların dökümanı silip silemeyeceğini belirten `canDeletePost(user, post)` fonksiyonu tanıtıp) kullanıcı ve server'ın ortak kullanacağı şekilde kodlayabilirsin.
 
-### Server-side Permissions
+### Server Tarafından İzin
 
-////
+Veritabanına yapılan değişikleri kontrolden geçiren bu izin sisteminin sadece kullanıcı tarafından engellendiğini unutmamak gerekir. Server tarafında yapılan _bütün_ değişiklikler herhangi bir engele takılmadan kabul edilir.
 
-////
+Eğer örnek olarak server tarafında tanıtılan bir `deletePost` Meteor Method'u kullanıcı tarafından çağırılabilirse, herhangi bir kullanıcı post dökümanlarını silebilecektir. Bu nedenle, server tarafından yapılan değişikliklerde öncelikle gerekli izinleri gözden geçirmek gerekir.
