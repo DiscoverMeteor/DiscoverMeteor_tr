@@ -1,24 +1,23 @@
 ---
-title: Allow and Deny
+title: Allow ve Deny
 slug: allow-and-deny
 date: 0008/01/02
 number: 8.5
 sidebar: true
-contents: Learn about Allow and Deny callbacks.|Understand in which order callbacks are called.
+contents: Allow ve Deny geriçağırımlarını öğreneceğiz.|Geriçağırımların hangi sırada uygulandığını anlayacağız.
 paragraphs: 16
 ---
+Meteor'un güvenlik sistemi veritabanında yaptığımız her değişiklikte yeni bir Method tanıtma yerine yapılan değişiklikleri kontrol etmemize izin verir.
 
-////
+Daha önce `post` bilgisine ekstra özellikler eklediğimizden ve URL'ın daha önce eklenip eklenmediğine baktığımız için Method eklemek mantıklı bir adımdı.
 
-////
+Fakat, post'u güncellerken ve silerken yeni bir Method eklemeye ihtiyac duymadık. Bunun için sadece kullanıcının silme ve güncelleme hakkının olup olmadıgına baktık, ve bunu `allow` ve `deny` kullanarak kolaylıkla yaptık.
 
-////
+Bu geriçağırımları kullanmak veritabanında yaptığımız değişiklikleri, ve güncellemeleri daha net bir şekilde ifade etmemize yardımcı olur. Özellikle bunları tanımlarken kullanıcı sistemini de kullanabilmemiz bizim için ekstra bir avantajdır.
 
-////
+### Çoklu geriçağırım
 
-### Multiple callbacks
-
-////
+İstediğimiz kadar `allow` geriçağırımı tanıtabiliriz. Veritabanına değişikliğin kaydedilmesi için bunlardan _en az birinin_ `true` dönmesi bizim için yeterli. Eğer `Posts.insert` kodu çağırıldığında (yaptığımız app'ın sayfasından ya da tarayıcının konsolundan direk olarak), server tarafındaki `insert` için tanıtılan `allow` kontrollerden herhangi biri `true` dönene kadar bütün kontroller denenir. Eğer bulunamazsa, veritabanına ekleme yapılmaz ve server geriye `403` hatası döner.
 
 ////
 
@@ -36,25 +35,7 @@ paragraphs: 16
 
 ////
 
-### Server-side permissions
-
-////
-
-////
-
-### Using deny as a callback
-
-////
-
-~~~js
-Posts.deny({
-  update: function(userId, doc, fields, modifier) {
-    doc.lastModified = +(new Date());
-    return false;
-  },
-  transform: null
-});
-~~~
+### Server-side Permissions
 
 ////
 
