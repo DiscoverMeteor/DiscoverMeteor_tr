@@ -19,13 +19,13 @@ Bu geriçağırımları kullanmak veritabanında yaptığımız değişiklikleri
 
 İstediğimiz kadar `allow` geriçağırımı tanıtabiliriz. Veritabanına değişikliğin kaydedilmesi için bunlardan _en az birinin_ `true` dönmesi bizim için yeterli. Eğer `Posts.insert` kodu çağırıldığında (yaptığımız app'ın sayfasından ya da tarayıcının konsolundan direk olarak), server tarafındaki `insert` için tanıtılan `allow` kontrollerden herhangi biri `true` dönene kadar bütün kontroller denenir. Eğer bulunamazsa, veritabanına ekleme yapılmaz ve server geriye `403` hatası döner.
 
-////
+Aynı şekilde birden fazla `deny` geriçağırımı ekleyebiliriz. Eğer bunlardan _herhangi biri_ `true` dönerse değişiklik durdurulur ve geriye `403` hata kodlu sayfa dönülür. Bundan ötürü eğer başarılı bir `insert` yapılması için kodumuzun _bütün_ `deny` `insert` geriçağırımlarından sonra `allow` `insert` geriçağırımlarının bir veya birden fazlasından geçmesi gerekir.
 
 <%= diagram "allow_deny", "Note: n/e stands for Not Executed" %>
 
-////
+Meteor `deny` geriçağırımlarından başlayarak `allow` listesine gider ve herhangi biri `true` dönene kadar tek tek geriçağırımları dener.
 
-////
+Uygulamalı bir örnek olarak iki tane `allow()` geriçağırımı olduğunu düşünelim: birinin `post`un giriş yapan kullanıcıya ait olup olmadığını, diğerinin de kullanıcının admin olup olmadığını kontrol ediyor olduğunu düşünelim. Eğer giriş yapan kullanıcı admin ise, herhangi `post`a değişiklik yapabilecektir, çünkü bu iki geriçağırımdan biri `true` dönecektir.
 
 ### Latency Compensation
 
