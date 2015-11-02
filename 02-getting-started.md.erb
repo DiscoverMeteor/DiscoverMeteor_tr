@@ -3,75 +3,32 @@ title: Başlarken
 slug: getting-started
 date: 0001/01/01
 number: 2
-contents: Meteor ve Meteorite Kurulumları | Meteor paketlerinin 5 farklı tipini öğreniyoruz | Meteor uygulamanızın dosya yapısını ayarlayalım
+contents: Meteor Kurulumu. | Meteor paketlerinin 5 farklı tipini öğreniyoruz. | Meteor uygulamanızın dosya yapısını ayarlayalım.
 paragraphs: 49
 ---
 
  İlk izlenimler her zaman çok önemlidir, ve Meteor'un kurulumu da nispeten sancısız olmalı. Çoğu durumda uygulamanın kurulumu ve ayağa kalkması 5 dakikadan daha kısa sürer.
- 
- Meteor'a başlarken terminal penceremizi açıyoruz ve şunları yazıyoruz:
+
+ Meteor'a başlarken, eğer Mac OS veya Linux kullanıyorsanız terminal penceresini açın ve şunları yazın:
 
 ~~~bash
 $ curl https://install.meteor.com | sh
 ~~~
 
-Bu işlem sisteminize 'meteor' çalıştırılabilir dosyasını kuracak ve kullanıma hazır hale getirecek.
+Eğer Windows kullanıyorsanız, Meteor sitesindeki [kurulum rehberini](https://www.meteor.com/install) inceleyebilirsiniz.
+
+Bu işlem sisteminize `meteor` çalıştırılabilir dosyasını kuracak ve kullanıma hazır hale getirecek.
 
 <% note do %>
 
-### *Not* Meteor'un Kurulumu
+### Meteor'un Kurmadan
 
 Eğer meteor'u lokale kuramıyorsan (ya da kurmak istemiyorsan) sana [Nitrous.io](http://nitrous.io)'a bir göz atmanı öneriyoruz.
 
-Nitrous.io uygulamanı hızlıca ayağa kaldırabildiğin ve kodlarını tarayıcıda düzenleyebildiğin bir servistir, ve biz ayarlarını nasıl yapacağın hakkında sana yardımcı olabilecek kısa bir açıklama hazırladık [a short guide](https://www.discovermeteor.com/blog/meteor-nitrous).
+Nitrous.io uygulamanı hızlıca ayağa kaldırabildiğin ve kodlarını tarayıcıda düzenleyebildiğin bir servistir, ve biz ayarlarını nasıl yapacağın hakkında sana yardımcı olabilecek [kısa bir açıklama](https://www.discovermeteor.com/blog/meteor-nitrous) hazırladık.
 
-"Meteor kurulumu" bölümünü basitçe takip ettikten sonra bu bölümdeki "Basit bir uygulama yaratmak" kısmına geçebilirsin.
+Bu rehberi ve "Meteor kurulumu" bölümünü takip ettikten sonra bu bölümdeki "Basit bir uygulama yaratmak" (“Creating a Simple App”) kısmına geçebilirsin.
 
-<% end %>
- 
-### Meteorite
-
-////
-
-////
-
-### Meteorite Kurulumu
-
-////
- 
-- [Node indirme bağlantısı](http://nodejs.org/download/)
-- [Git indirme bağlantısı](http://git-scm.com/downloads)
-
-////
-
-~~~bash
-$ npm install -g meteorite
-~~~
-
-<% note do %>
-
-### Yetki hataları?
-
-////
-
-~~~bash
-$ sudo -H npm install -g meteorite
-~~~
-
-////
-
-<% end %>
-
-////
-
-////
-
-<% note do %>
-
-  ### `mrt` vs `meteor`
-  
-////
-  
 <% end %>
 
 ### Basit bir uygulama yaratmak
@@ -79,41 +36,54 @@ $ sudo -H npm install -g meteorite
 Şu an meteor kurulumunu tamamladık, hadi bir uygulama yaratalım. Yapmamız gereken Meteor'un komut satırını kullanmak:
 
 ~~~bash
-$ mrt create microscope
+meteor create microscope
 ~~~
 
-Bu komut meteoru indirecek, ve basit kurulumunu hazırlayacak, böylece Meteor projesi senin için hazır. Herşey tamamlandıktan sonra göreceğin dizin şu şekilde olmalı `microscope/`:
+Bu komut meteoru indirecek ve basit kurulumunu hazırlayacak. Herşey tamamlandıktan sonra göreceğin dizin şu şekilde olmalı `microscope/` ve aşağıdaki dizinleri/dosyaları içermeli:
 
 ~~~bash
-microscope.css  
-microscope.html 
-microscope.js   
-smart.json 
+ .meteor
+microscope.css
+microscope.html
+microscope.js
 ~~~
 
-////
+Meteor tarafından oluşturulan bu basit uygulama aslında size basit bir Meteor uygulamasının parçalarını gösteren bir boilerplate (örnek) uygulamadır.
 
-////
+Bu uygulamanın aslında çok bir özelliği olmasa da, çalıştırılabilir bir uygulamadır. Çalıştırmak için komut satırına gidip şunu yazabilirsiniz:
 
 ~~~bash
-$ cd microscope
-$ meteor
+cd microscope
+meteor
 ~~~
 
-////
+Şimdi tarayıcınızda `http://localhost:3000/` (ya da `http://0.0.0.0:3000/`) adresini açarak bu örnek uygulamayı test edebilirsiniz:
 
-<%= screenshot "2-1", "Meteor's Hello World." %>
+<%= screenshot "2-1", "Meteor'un Hello World uygulaması." %>
 
 <%= commit "2-1", "Basit microscope projesi oluşturuldu." %>
 
-////
+Tebrikler! İlk Meteor uygulamanızı yaptınız. Bu arada, uygulamanızı durdurmak için komut satırında `ctrl+c` ye basabilirsiniz.
+
+Eğer Git kullanıyorsanız, uygulamanızı repo ya sabitlemek için tam zamanı. Bunun için monut satırında `git init` yazmanız yeterli.
+
+<% note do %>
+
+### Güle güle Meteorite
+
+Bir zamanlar Meteor projesi Meteorite isimli harici bir paket yöneticisi kullanıyordu. Meteor versiyon 0.9.0 dan beri, bu araç Meteor'un içine gömüldüğü için harici bir paket yöneticisine gerek kalmamıştır.
+
+Eğer bu kitap boyunca Meteorite'nin `mrt` komut satırı aracı ile ilgili herhangi bir referansa rastlarsanız, bu komutu güvenli bir şekilde `meteor` komutu ile değiştirebilirsiniz.
+
+<% end %>
+
 
 ### Paket ekleyelim
 
 ////
 
 ~~~bash
-$ mrt add bootstrap
+meteor add bootstrap
 ~~~
 
 <%= commit "2-2", "Bootstrap paketi eklendi" %>
@@ -291,6 +261,6 @@ body {
 
 ////
 
-`mrt add coffeescript`
+`meteor add coffeescript`
 
 <% end %>
