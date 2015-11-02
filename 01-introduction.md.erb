@@ -3,29 +3,29 @@ title: Giriş
 slug: introduction
 date: 0001/01/01
 number: 1
-contents: Meteor'u özel kılanın ne olduğunu öğrenin.|Bu kitabın hikayesini hakkında okuyun.|Kitabın nasıl organize olduğunu öğrenin.
+contents: Meteor'u özel kılanın ne olduğunu öğrenin.|Bu kitabın hikayesini okuyun.|Bu kitabın nasıl düzenlendiğini öğrenin.
 paragraphs: 35
 ---
 
-Benim için zihinsel bir deney yapın. Bilgisayarınızın iki farklı penceresinde iki farklı klasör açtığınızı hayal edin.
+Şimdi zihinsel bir deney yapalım. Bilgisayarınızın iki farklı penceresinde iki farklı klasör açtığınızı hayal edin.
 
 Şimdi, iki pencereden birine tıklayın ve bir dosya silin. Bu dosya diğer pencereden de kayboldu mu?
 
-Kaybolduğunu bilmek için bu adımları uygulamanıza gerek yok. Yerel dosya sistemimizde bir değişiklik yaptığımızda, değişiklik her yere, yenileme veya geri çağırma yapmaksızın uygulanır. Bu kadar basit. 
+Aslında kaybolacağını bilmek için bu adımları uygulamanıza gerek yok. Lokal dosya sistemimizde bir değişiklik yaptığımızda, değişiklik her yere, yenileme veya tazeleme yapmaksızın uygulanır. Bu kadar basit.
 
-Oysa, hadi aynı senaryonun web'de nasıl gerçekleşeceğini düşünelim. Diyelim ki, aynı WordPress admin sayfasını iki farklı tarayıcı penceresinde açtınız ve birinde yeni bir gönderi yarattınız. Bilgisayarınızın aksine, ne kadar beklerseniz bekleyin, diğer pencere bu değişikliği, sayfayı yenilemediğiniz sürece yansıtmayacaktır.
+Şimdi aynı senaryonun web'de nasıl gerçekleşeceğini düşünelim. Diyelim ki, aynı WordPress admin sayfasını iki farklı tarayıcı penceresinde açtınız ve birinde yeni bir sayfa oluşturdunuz. Bilgisayarınızın aksine, ne kadar beklerseniz bekleyin, diğer pencere bu değişikliği, sayfayı yenilemediğiniz sürece yansıtmayacaktır.
 
-Yıllar içinde, bir web sitesinin bizimle kısa, ayrık aralıklarla iletişim kurmasına alışmış bulunmaktayız. 
+Zaman içinde, bir web sitesinin bizimle kısa, ayrık aralıklarla iletişim kurması fikrine alışmış bulunmaktayız.
 
-Ancak Meteor web'i gerçek zamanlı ve reaktif yaparak statükoya meydan okuyan, yeni akım framework ve teknolojilerin bir parçasıdır.
+Ancak Meteor web'i gerçek zamanlı ve reaktif (tepkili) yaparak statükoya meydan okuyan, yeni akım framework ve teknolojilerin bir parçasıdır.
 
 ### Meteor nedir?
 
-Meteor Node.js'in üzerine bina edilmiş gerçek zamanlı web uygulamaları geliştirme amaçlı bir platformdur. Uygulamanızın veritabanı ve kullanıcı arayüzü arasında, iki tarafın senkronize olmasını sağlamak üzere konuşlanmıştır.
+Meteor Node.js üzerine inşa edilmiş, gerçek zamanlı web uygulamaları geliştirme platformudur. Uygulamanızın veritabanı ve kullanıcı arayüzü arasında, iki tarafın senkronize olmasını sağlamak üzere konuşlanmıştır.
 
-Node.js üzerine inşaa edildiğine göre, Meteor hem istemci hem de sunucu tarafında Javascript kullanır. Daha da önemlisi Meteor, iki ortam arasında kod da paylaşabilir.
+Meteor Node.js üzerine inşa edildiğinden, hem istemci hem de sunucu tarafında JavaScript kullanır. Daha da önemlisi Meteor, iki ortam arasında kod paylaşabilir.
 
-Tüm bunların neticesinde, web uygulamalarında sıklıkla görülen birçok güçlük ve tehlikeyi soyutlayarak çok güçlü ve çok basit bir platform olmayı başarmıştır.
+Tüm bunların neticesinde, web uygulamalarında sıklıkla görülen birçok güçlük ve handıkapı soyutlayarak çok güçlü ve çok basit bir platform olmayı başarmıştır.
 
 ### Neden Meteor?
 
@@ -33,23 +33,23 @@ Neden başka bir web framework'ü yerine Meteor'u öğrenmek için vakit harcama
 
 Meteor, gerçek zamanlı bir web uygulamasını saatler içinde çalışır hale getirip yayına sokmayı, diğer framework'lere kıyasla daha kolay bir şekilde mümkün kılmaktadır. Daha önce ön-yüz geliştirme yaptıysanız, Javascript'e zaten aşinasınız ve yeni bir dil öğrenme ihtiyacınız yok.
 
-Meteor ihtiyaçlarınız için ideal framework olabilir de olmayabilir de. Ama, madem ki bir kaç akşam veya haftasonu sürecince başlayabilirsiniz, neden deneyip kendiniz karar vermiyorsunuz?
+Meteor ihtiyaçlarınız için ideal framework olabilir de olmayabilir de. Ama, madem ki sadece bir kaç akşam veya haftasonu harcayarak öğrenebileceksiniz, denemeye değmez mi?
 
 ### Neden bu kitap?
 
-Son 6 aydır, herkesin kendi, bağlantı paylaşılıp oylanabilen, sosyal haber sitesini ([Reddit](http://reddit.com) veya [Hacker news](http://news.ycombinator.com)'u düşünün) yaratmasına olanak sağlayan açık kaynak kodlu bir Meteor uygulaması [Telescope](http://telesc.pe) üzerinde çalışıyoruz.
+Son birkaç yıldır, web den mobile, ve ticariden açık kaynağa çeşitli Meteor projeleri üzerinde çalışıyoruz.
 
-Uygulamayı yaparken çok şey öğrendik, ancak sorularımıza her zaman yanıt bulmak kolay olmadı. Çok farklı kaynaklardan parçaları birleştirmek, ve çoğu sefer de kendi çözümlerimizi üretmek zorunda kaldık. Bu kitap ile birlikte, tüm bu dersleri paylaşmak ve sıfırdan tam teşekküllü bir Meteor uygulaması yazmayı adım adım anlatan bir kılavuz yaratmak istedik.
+Bu zaman zarfında tonla şey öğrendik, ancak sorularımıza cevap bulmak her zaman kolay olmadı. Çok farklı kaynaklardan parçaları birleştirmek ve çoğu sefer de kendi çözümlerimizi üretmek zorunda kaldık. Bu kitap ile birlikte, tüm bu dersleri paylaşmak ve sıfırdan tam teşekküllü bir Meteor uygulaması yazmayı adım adım anlatan bir kılavuz yaratmak istedik.
 
-Yapacağımız uygulama Telescope'un kısmen basitleştirilmiş versiyonu olan, Miscroscope diye adlandırdığımız bir uygulama. Bunu yazarken, bir Meteor uygulaması yaparken incelenmesi gereken, kullanıcı hesapları, Meteor koleksiyonları, yönlendirme vb. tüm farklı elemanları irdeleyeceğiz.
-
-Kitabı okumayı bitirdiğinizde, daha ileri gitmek isterseniz, Telescope'un kodunu, aynı modelleri takip ettiğinden kolayca anlayabileceksiniz.
+Burada yapacağımız uygulama, [Hacker news](http://news.ycombinator.com) veya [Reddit](http://reddit.com) gibi sosyal haber sitelerinin basit bir kopyası olan, Microscope (açık kaynaklı olarak yazdığımız  bir uygulama olan [Telescope](http://telesc.pe) isminden esinlendik) olarak adlandırdığımız bir uygulamadır. Bunu yazarken, bir Meteor uygulaması yaparken incelenmesi gereken, kullanıcı hesapları, Meteor koleksiyonları, yönlendirme vb. tüm farklı elemanları irdeleyeceğiz.
 
 ### Bu kitap kimin için?
 
-Kitabı yazarken hedeflerimizden biri, herşeyin ulaşılabilir ve kolayca anlaşılır olmasını sağlamaktı. Dolayısıyla, Meteor, Node, MVC frameworkleri veya genel olarak server-side kodlama deneyiminiz olmasa da takip edebilmeniz lazım.
+Kitabı yazarken hedeflerimizden biri, herşeyin ulaşılabilir ve kolayca anlaşılır olmasını sağlamaktı. Dolayısıyla, Meteor, Node, MVC frameworkleri veya genel olarak server-side kodlama deneyiminiz olmasa da takip edebilirsiniz.
 
-Öte yandan, basit Javascript sentaksı ve konseptlerine aşina olduğunuzu varsayıyoruz. Eğer biraz jQuery ile uğraşmışlığınız veya tarayıcınızın geliştirici konsoluyla oynamışlığınız varsa, problem yaşamamanız lazım.
+Öte yandan, basit JavaScript sentaksı ve konseptlerine aşina olduğunuzu varsayıyoruz. Eğer biraz jQuery ile uğraşmışlığınız veya tarayıcınızın geliştirici konsoluyla oynamışlığınız varsa, problem yaşamayacaksınızdır.
+
+Eğer henüz hiç JavaScript ile çalışmadıysanız, işe [JavaScript primer for Meteor](https://www.discovermeteor.com/blog/javascript-for-meteor/) ile başlamanızı tavsiye ederiz.
 
 ### Yazarlar Hakkında
 
@@ -57,33 +57,31 @@ Kim olduğumuzu merak ediyor ve neden bize güvenmeniz gerektiğini düşünüyo
 
 <%= image "tom-photo.jpg", "portrait" %>
 
-**Tom Coleman** kalite ve kullanıcı deneyimine odaklanan bir web atölyesi olan [Percolate Studio](http://percolatestudio.com/)'un bir parçasıdır. [Meteorite](https://github.com/oortcloud/meteorite)'ın ve paket deposu [Atmosphere](http://atmosphere.meteor.com)'in yaratıcılarından biri ve aynı zamanda pek çok açık kaynak kodlu Meteor projesinin ([Iron Router](https://github.com/EventedMind/iron-router) gibi) arkasındaki beyinlerden biridir.
+**Tom Coleman** kalite ve kullanıcı deneyimine odaklanan bir web atölyesi olan [Percolate Studio](http://percolatestudio.com/)'un kurucusu ve [Meteorite](https://github.com/oortcloud/meteorite)'ın ve paket deposu [Atmosphere](http://atmosphere.meteor.com)'in yaratıcılarından, aynı zamanda pek çok açık kaynak kodlu Meteor projesinin arkasındaki beyinlerden biridir. Şu anda Meteor Geliştirme Grubu'nda full-time çalışmaktadır.
 
 <%= image "sacha-photo.jpg", "portrait" %>
 
-**Sacha Greif** has worked with startups such as [Hipmunk](http://hipmunk.com) and [RubyMotion](http://rubymotion.com) as a product and web designer. He's the creator of [Telescope](http://telesc.pe) and [Sidebar](http://sidebar.io) (which is based on Telescope), and is also the founder of [Folyo](http://folyo.me).
-
-**Sacha Greif** [Hipmunk](http://hipmunk.com) ve [RubyMotion](http://rubymotion.com) gibi startup'larda ürün ve web tasarımcısı olarak çalışmıştır. [Telescope](http://telesc.pe) ve [Sidebar](http://sidebar.io)'ın (Telescope'dan baz alınmış) yaratıcısı ve [Folyo](http://folyo.me)'nun kurucusudur.
+**Sacha Greif** [Hipmunk](http://hipmunk.com) ve [RubyMotion](http://rubymotion.com) gibi startup'larda ürün ve web tasarımcısı olarak çalışmıştır. [Telescope](http://telesc.pe) ve [Sidebar](http://sidebar.io)'ın (Telescope bazlı) yaratıcısıdır.
 
 ### Bölümler & Ek Bilgiler
 
-Bu kitabın hem acemi Meteor kullanıcısı hem de ileri düzey programcılar için faydalı olmasını istedik, bu yüzden bölümleri iki kategoriye ayırdık: normal bölümler (1'den 14'e numaralandırılmış) ve ek bilgiler (.5 numaralar)
+Bu kitabın hem acemi Meteor kullanıcısı hem de ileri düzey programcılar için faydalı olmasını istedik, bu yüzden bölümleri iki kategoriye ayırdık: normal bölümler (1'den 14'e numaralandırılmış) ve ek bilgiler (.5 numaralar).
 
-Normal bölümler size uygulamayı yapma yolunda eşlik edecek, ve sizi çok fazla detaya boğmadan en önemli basamakları açıklayarak en kısa sürede işlevsel olmanızı sağlamaya çalışacak.
+Normal bölümler size uygulamayı oluşturma yolunda eşlik edecek, ve sizi çok fazla detaya boğmadan en önemli basamakları açıklayarak en kısa sürede işlevsel olmanızı sağlamaya çalışacak.
 
-Öte yandan, ek bilgi bölümleri Meteor'un karışık taraflarına değinecek ve arka planda gerçekten neler olduğu hakkında daha iyi bir fikir edinmenize yardımcı olacak.
+Öte yandan, ek bilgi bölümleri Meteor'u data detaylı ele alacak ve arka planda gerçekten neler olduğu hakkında daha iyi bir fikir edinmenize yardımcı olacak.
 
 Eğer yeni başlıyorsanız, ek bilgi bölümlerini ilk okumanızda atlayabilir, ve Meteor'u biraz kurcaladıktan sonra tekrar geri dönebilirsiniz.
 
-### Commitler & Canlı Örnekler 
+### Commitler & Canlı Örnekler
 
-Bir programcılık kitabını takip edip, birden kendi kodunuzun örneklerden farklılaştığını, hiç birşeyin artık çalışması gerektiği gibi çalışmadığını farketmekten kötüsü yoktur.
+Bir programcılık kitabını takip edip, birden kendi kodunuzun örneklerden farklılaştığını, hiç birşeyin artık çalışması gerektiği gibi çalışmadığını farketmekten daha kötüsü yoktur.
 
-Bunu engellemek için, [Microscope için bir GitHub reposu](https://github.com/DiscoverMeteor/Microscope) yarattık, ve her birkaç kod değişikliği için ilgili git commitine bağlantılar sağladık. Ek olarak, her commit uygulamanın ilgili commit için canlı örneğine bağlantı kuruyor, bu sayede yerel kopyanız ile kıyaslayabiliyorsunuz. İşte bunun nasıl birşeye benzediğine dair bir örnek:
+Bunu engellemek için, [Microscope için bir GitHub reposu](https://github.com/DiscoverMeteor/Microscope) yarattık, ve her birkaç kod değişikliği için ilgili git commitine bağlantı vereceğiz. Ek olarak, her commit uygulamanın ilgili commiti için canlı örneğine bağlantı kuruyor, bu sayede yerel kopyanız ile kıyaslayabiliyorsunuz. İşte bunun nasıl birşeye benzediğine dair bir örnek:
 
 <%= commit "11-2", "Başlıkta bildirimlerin görüntülenmesi." %>
 
-Ama şuna dikkat etmek gerekir ki, bu commitleri sağlamamız, sadece bir 'git checkoutundan' diğerine gitmeniz gerektiği anlamına gelmiyor. Uygulamanızın kodunu manüel olarak yazmanız, çok daha iyi öğrenmenizi sağlayacaktır!
+Ama şuna dikkat etmek gerekir ki, bu commitleri sağlamamız, sadece bir `git checkout` 'dan diğerine gitmeniz gerektiği anlamına gelmiyor. Uygulamanızın kodunu kendiniz yazmanız, çok daha iyi öğrenmenizi sağlayacaktır!
 
 ### Diğer birkaç kaynak
 
@@ -99,13 +97,13 @@ Kitabı takip etmek için Git versiyon kontrolüne aşinalık kesin surette gere
 
 Hızla yol almak isterseniz size Nick Farina'nın [Git Düşündüğünüzden Daha Basit](http://nfarina.com/post/9868516270/git-is-simpler).'ini tavsiye ederiz.
 
-Git konusunda yeni iseniz, aynı zamanda, komut satırını kullanmadan git repolarını klonlamanıza ve yönetmenize yarayan [GitHub for Mac](http://mac.github.com/) uygulamasını da tavsiye ediyoruz.
+Git konusunda yeni iseniz, aynı zamanda, komut satırını kullanmadan git repolarını klonlamanıza ve yönetmenize yarayan ücretsiz [GitHub masaüstü](http://desktop.github.com/) ya da [SourceTree](http://www.sourcetreeapp.com/) uygulamalarını kullanmanızı tavsiye ederiz.
 
 <% end %>
 
-### Bize ulaşın 
+### Bize ulaşın
 
-- Bize ulaşmak isterseniz, [hello@discovermeteor.com](mailto:hello@discovermeteor.com) adresinden mail atabiirsiniz.
+- Bize ulaşmak isterseniz, [hello@discovermeteor.com](mailto:hello@discovermeteor.com) adresine mail atabiirsiniz.
 - Ek olarak, kitabın içeriğinde yazım hatası veya başka bir hataya rastlarsanız [bu GitHub reposundan hata bildirimi yaparak](https://github.com/DiscoverMeteor/book/issues) bize haber verin.
 - Microscope'un kodu hakkında bir probleme rastlarsanız, [Microscope'un reposundan hata bildirimi yapabilirsiniz](https://github.com/DiscoverMeteor/Microscope/issues).
 - Son olarak, diğer tüm sorularınız için bu uygulamanın yan panelinden bize yorum bırakabilirsiniz.
