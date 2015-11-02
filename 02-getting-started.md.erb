@@ -80,13 +80,55 @@ Eğer bu kitap boyunca Meteorite'nin `mrt` komut satırı aracı ile ilgili herh
 
 ### Paket ekleyelim
 
-////
+Şimdi Meteor'un paket yöneticisini kullanarak [Bootstrap](http://getbootstrap.com/) framework'ünü projemize ekleyeceğiz.
+
+Aslında bu yapacağımız işlemin, paket yöneticisi kullanarak Bootstrap'i güncel tutmak dışında CSS ve JavaScript dosyalarını elle eklemekten çok ta farkı yok.
+
+`bootstrap` paketi `twbs` kullanıcısı tarafından yaratılmıştır, dolayısı ile bu paketi kurabilmek için paketin tam adı (`kullanıcı_adı:paket_adı`) `twbs:bootstrap` tir.
 
 ~~~bash
-meteor add bootstrap
+meteor add twbs:bootstrap
 ~~~
 
+Burada kullandığımız Bootstrap versiyon 3 tür, fakat bazı ekran görüntüleri eski versiyon Meteorite kullanılarak hazırlandığından Bootstrap versiyon 2 ye ait olup biraz farklı görünebilir.
+
+Şimdi oluşturduğumuz projemizde hangi paketleri kullandığımızı öğrenmek için tam zamanı. Aşağıda görüldüğü gibi, biraz önce eklediğimiz pakete ek olarak, Meteor varsayılan birkaç paketle yüklü olarak geliyor. Bunları öğrenmek için `.meteor` dizinindeki `versions` dosyasının içeriğine bakalım:
+
+```
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+blaze-html-templates    # Compile .html files into Meteor Blaze views
+session                 # Client-side reactive dictionary for your app
+jquery                  # Helpful client-side library
+tracker                 # Meteor's client-side reactive programming library
+
+standard-minifiers      # JS/CSS minifiers run for production mode
+es5-shim                # ECMAScript 5 compatibility for older browsers.
+ecmascript              # Enable ECMAScript2015+ syntax in app code
+
+autopublish             # Publish all data to the clients (for prototyping)
+insecure                # Allow all DB writes from clients (for prototyping)
+twbs:bootstrap
+```
+
+Bu liste size biraz karmaşık gelebilir, fakat burada gördüğünüz tüm paketleri şimdilik gözardı edebilirsiniz. Sadece kendi eklediğimiz paket olan `twbs:bootstrap` in varlığını teyit etmemiz yeterli.
+
+Ayrıca gördüğünüz gibi tüm paket isimleri `twbs:bootstrap` paketinde olduğu gibi kullanıcı ismini içermeyebiliyor. Bunun sebebi, bu paketlerin resmi Meteor paketleri olmasındandır.
+
 <%= commit "2-2", "Bootstrap paketi eklendi" %>
+
+Bootstrap paketini ekler eklemez basit uygulamamızın görünümünün değiştiğini farkedeceksiniz:
+
+<%= screenshot "2-1b", "With Bootstrap." %>
+
+Gördüğünüz gibi klasik yöntemle sayfamıza veya sayfalarımıza stil ve script dosyalarını elle eklemedik. Bu işi Meteor'un bizim yerimize kolayca yaptığını gördük. Bu, Meteor paketleri kullanmanın avantajlarından sadece biri.
 
 <% note do %>
 
