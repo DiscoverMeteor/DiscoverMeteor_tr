@@ -134,34 +134,40 @@ Gördüğünüz gibi klasik yöntemle sayfamıza veya sayfalarımıza stil ve sc
 
 ### Paketler konusunda bir not
 
-////
+Meteor paketlerinden bahsederken, Meteor'a özgü bazı önemli konuları ele almakta yarar var. Meteor beş farklı temel paket tipi kullanır:
 
-- ////
-- ////
-- ////
-- ////
-- ////
+- `meteor-base` paketi: **Meteor'un ana çekirdeğidir** ve Meteor uygulamaları bu paket olmadan çalışamaz.
+- **İlk parti paketleri** Meteor'la birlikte gelirler. Bunlardan bazıları, `mongo` ve `session`, yeni uygulamarın içine varsayılan paketler olarak konulur, ancak ihtiyaç olmadığı durumlarda silinebilir. `check` ve `http` paketleri ise tam tersine mutlaka gereklidir.
+- **Yerel paketler** uygulamanıza özeldir ve yerel dosya sisteminizde `/packages` dizininde bulunurlar.
+- **Atmosphere paketleri** Meteor'un online paket reposu olan [Atmosphere](http://atmosphere.meteor.com) sisteminde yayınlanan özel isteğe bağlı üçüncü parti paketleridir. Bu paketlerin tümü `yaratıcı_adı:paket_adı` isimlendirmesi taşırlar.
+- Son olarak, **NPM paketleri** Node.js paketleridir. Uygulamanızın paket listesine direkt olarak dahil olamazlar, onun yerine indirilip (import edilip) Meteor'un yerel paketleri veya Atmosphere paketleri içerisinden kullanılabilirler.
 
 <% end %>
 
 ### Meteor uygulamaları için dosya yapısı
 
-////
+Kod yazmaya başlamadan önce projemizi doğru bir şekilde oluşturmalıyız. Bundan dolayı temiz bir build e sahip olmak için `microscope` dizinindeki `microscope.html`, `microscope.js` ve `microscope.css` dosyalarını silelim.
 
-////
+Sonraki adımda, `/microscope` dizini altında dört yeni dizin oluşturalım: `/client`, `/server`, `/public`, ve `/lib`.
 
-////
+Daha sonra, `/client` dizini altında boş `main.html` ve `main.js` dosyaları oluşturalım. Uygulamanız bu aşamada çalışmasa da sorun değil, bir sonraki bölümde bu dosyaların içini dolduracağız.
 
-- ////
-- ////
-- ////
-- ////
-- ////
-- ////
+Biraz önce oluşturduğumuz dizinlerin bazılarının özel olduğunu söylememiz lazım. Sebebi, Meteor kodları çalışırken bazı kurallara uyar:
 
-////
+- `/server` dizinindeki kodlar sadece sunucu tarafında çalışır.
+- `/client` dizinindeki kodlar sadece istemci tarafında çalışır.
+- Diğer tüm kodlar hem sunucu hem de istemci tarafında çalışabilir.
+- Statik dosyalarınız (font, resim, vb) `/public` dizininde bulunmalıdır.
 
-////
+Aynı zamanda şunu bilmelisiniz ki, kodlarınızın hangi sırayla yükleneceğine Meteor karar verir:
+
+- `/lib` dizinindeki tüm dosyalar *herşeyden önce* yüklenir.
+- `main.*` olarak isimlendirilen tüm dosyalar *herşeyden sonra* yüklenir.
+- Diğer tüm dosyalar ise isimlerine göre alfabetik olarak yüklenirler.
+
+Meteor tüm bu kurallara uymasına rağmen dosya sisteminizin nasıl olacağına karışmaz. Burada tavsiye edilen proje dosya yapısı tamamen bizim kullandığımız yöntemdir, kesinlikle uymak zorunda değilsiniz.
+
+Dosya yapısı hakkında daha fazla bilgi için [resmi Meteor dökümantasyonuna](http://docs.meteor.com/#structuringyourapp) bakmanızı şiddetle tavsiye ederiz.
 
 <% note do %>
 
