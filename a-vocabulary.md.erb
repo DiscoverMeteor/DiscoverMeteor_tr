@@ -5,82 +5,82 @@ date: 0099/01/01
 number: 99
 points: 1
 appendix: true
-contents: Bazı Meteor tanımları.
+contents: Bazı Meteor terimlerinin türkçe karşılığı ve açıklamaları yer almaktadır.
 paragraphs: 19
 ---
 
-#### Client
+#### Client (İstemci)
 
-İstemci
+Kullanıcının tarayıcısında çalışan kodları tanımlamak için kullanılır. İstemci herhangi bir tarayıcı olabileceği gibi, bir UIWebView ya da gerçek iPhone uygulaması olabilir.
 
-#### Collection
+#### Collection (Koleksiyon)
 
-Koleksiyon
+Meteor koleksiyonu, istemci ile sunucu arasında otomatik olarak senkronize olan veri deposudur. Koleksiyonlar bir isme sahip olurlar (örneğin `posts`), ve genellikle hem istemci hem de sunucu tarafında bulunurlar. Davranışları farklı olmasına rağmen, MongoDB'ye ait ortak bir API kullanırlar.
 
-#### Computation
+#### Computation (Hesaplama)
 
-Hesaplama
+Hesaplama, değişime duyarlı reaktif veri kaynaklarını sürekli çalıştıran kod bloğudur. Eğer reaktif bir veri kaynağınız varsa (örneğin Session değişkeni) ve bu kaynağa reaktif olarak cevap vermek istiyorsanız yani değişimlere anında tepkide bulunmak istiyorsanız, bunun için bir hesaplama arabirimi kurmalısınız.
 
-#### Cursor
+#### Cursor (İmleç)
 
-İmleç
+Buradaki imleç bildiğimiz kullanıcı arabirimindeki imleçten farklı olarak, Mongo koleksiyonuna gönderilen sorguların sonucunun bulunduğu nesneler bütünüdür. Aslında istemci tarafında, imleç gelen sonuçların bulunduğu bir array den çok, koleksiyonlar üzerinde ekleme, silme ve değiştirme isşlemleri yapıldığında nesneler bütünü olarak gözlem yapılabilen reaktif bir nesnedir.
 
-#### DDP
+#### DDP (Dağıtık Veri Protokolü)
 
-DDP
+DDP Meteor'un dağıtık veri protokolü (Distributed Data Protocol), yani koleksiyonları senkronize tutan ve istemci ile sunucu arasında metot çalıştırabilen bağlantı protokolüdür. Aslında DDP, HTTP'ye alternatif olarak yüksek miktarda veri transferi gereken gerçek zamanlı uygulamalar geliştirebilmek için yaratılmış genel kullanımlı bir protokoldür.
 
-#### Tracker
+#### Tracker (İzci)
 
-İzci
+İzci Meteor'un reaktivite sistemidir. Arka planda HTML'i veriler ile senkronize tutmak için kullanılır.
 
-#### Document
+#### Document (Döküman)
 
-Döküman
+Mongo, tablolar yerine döküman adı verilen koleksiyon çıktısı üreten doküman bazlı veri tabanı sistemidir. Aslında Mongo içerisindeki tüm dökümanlar `_id` alanına sahip birer JavaScript nesneleridir (fonksiyon bulunduramaz). Meteor, dökümanlar içerisindeki `_id` alanlarını kullanarak veri kaynaklarına DDP üzerinden erişir.
 
-#### Helpers
+#### Helpers (Yardımcılar)
 
-Yardımcılar
+Yardımcı, şablonlarla beraber kullanılan ve eğer oluşturduğunuz şablon basit bir dökümandan fazlasıysa, ekranınızı veriler veya diğer zengin etmenlerle render etmeye yardımcı olan bir fonksiyonlar bütünütür.
 
-#### Latency Compensation
+#### Latency Compensation (Gecikme Telafisi)
 
-Gecikme Telafisi
+İstemci üzerinde veri akışıyla ilgili bir işlem yaptığınızda, veriyi sunucuya göndermeden sadece istemci üzerinde sanki sunucuya göndermiş gibi simüle ederek böylelikle de sunucunun geri dönmesini beklemeyerek gecikme yokmuş algısı yaratmaya yarayan bir tekniktir.
 
-#### Meteor Development Group (MDG)
+#### Meteor Development Group (Meteor Geliştirme Grubu, MDG)
 
-Meteor Geliştirme Grubu (MDG)
+Meteor'u yaratan şirketin adıdır.
 
-#### Method
+#### Method (Metot)
 
-Metot
+Meteor metodu, RPC, yani remote procedure call dediğimiz istemciden sunucudaki metotları direkt çalıştırmaya ve koleksiyonların değişimini takip etmeye yarayan, ve bu sayede gecikme telafisi tekniğine imkan sağlayan yöntemin adıdır.
 
 #### MiniMongo
 
-MiniMongo
+İstemci üzerinde sadece hafızada çalışan Mongo API leriyle uyumlu veri deposu koleksiyonlarıdır. Daha kolay bir anlatımla, tamamen tarayıcı üzerinde çalışan, Mongo'nun basit bir kopyasıdır.
 
-#### Package
+#### Package (Paket)
 
-Paket
+Bir Meteor paketi, sunucu ve/veya istemci tarafında çalışan, kaynakların (örneğin SASS ve CSS) nasıl kullanılacağını ve neler yapacağını yöneten JavaScript kodlarından oluşur.<br/> Süper güç verilmiş bir kütüphane gibidirler. Meteor çok geniş yelpazede paketler içerir, ve aynı zamanda [Atmosphere](http://atmosphere.meteor.com) paketleri de dünyanın dört bir tarafından gönüllü Meteor geliştiricilerinin sağladığı ek paketlerdir.
 
-#### Publication
+#### Publication (Yayın)
 
-Yayın
+Sunucu tarafında oluşturulan, üye olan her kullanıcı için özelleştirilebilen, isimlendirilmiş birer veri kaynaklarıdır.
 
-#### Server
+#### Server (Sunucu)
 
-Sunucu
+Meteor sunucusu, HTTP ve DDP protokollerini kullanan ve Node.js üzerinde çalışan bir sunucudur. Tüm Meteor kütüphaneleri ile sunucu tarafında oluşturduğunuz JavaScript kodlarından oluşur. Meteor sunucusunu ilk çalıştırdığınızda Mongo veritabanına otomatik bağlantı kurar.
 
-#### Session
+#### Session (Oturum)
 
-Oturum
+Meteor dünyasında Oturum, uygulamanız tarafından kullanıcılarla ilgili oturum bilgilerini tutan, istemci tarafındaki reaktif veri kaynağıdır.
 
-#### Subscription
+#### Subscription (Üyelik)
 
-Üyelik
+Belirli bir istemci için yayına bağlanan bağlantı anlamına gelir. İstemci tarafında çalışan ve veriyi senkronize tutmak için sunucu tarafındaki yayınla iletişim halinde olan kod parçalarıdır.
 
-#### Template
+#### Template (Şablon)
 
-Şablon
+JavaScript kullanarak HTML oluşturmaya yarayan metoda verilen isimdir. Varsayılan olarak, Meteor mantık bulundurmayan şablonlama sistemi olan Spacebars kullanır. Gelecekte başka şablonlama sistemlerini de deskteklemek plan dahilindedir.
 
-#### Template Data Context
+#### Template Data Context (Şablon Veri Bağlamı, Şablon Veri İçeriği)
 
-Şablon Veri Bağlamı, Şablon Veri İçeriği
+Bir şablon render olduğunda, bu render için özel olarak veri sağlayan bir JavaScript nesnesine başvurur. Bu nesneler genellikle koleksiyonlardan gelen dökümanlardan oluşan POJO dediğimiz düz-eski-JavaScript nesneleridir (daha karmaşık ve fonksiyon barındıran nesneler de olabilir).
