@@ -7,22 +7,14 @@ contents: Learn about Meteor's core feature, realtime collections.|Understand ho
 paragraphs: 72
 ---
 
-////
+Meteor'un çekirdek özelliği, gerçek zamanlı koleksiyonları hakkında bilgi edinin.
 
-////
+Meteor veri senkronizasyonu nasıl çalıştığını anlamak.
 
-////
-
-////
-
-////
-
-////
-
-////
+Template şablonları ile koleksiyonları entegre edin.
 
 ~~~js
-Posts = new Meteor.Collection('posts');
+Posts = new Mongo.Collection('posts');
 ~~~
 <%= caption "collections/posts.js" %>
 
@@ -205,13 +197,13 @@ if (Posts.find().count() === 0) {
     author: 'Sacha Greif',
     url: 'http://sachagreif.com/introducing-telescope/'
   });
-  
+
   Posts.insert({
     title: 'Meteor',
     author: 'Tom Coleman',
     url: 'http://meteor.com'
   });
-  
+
   Posts.insert({
     title: 'The Meteor Book',
     author: 'Tom Coleman',
@@ -272,8 +264,8 @@ Template.postsList.helpers({
 
 ~~~js
 ❯ Posts.insert({
-  title: 'Meteor Docs', 
-  author: 'Tom Coleman', 
+  title: 'Meteor Docs',
+  author: 'Tom Coleman',
   url: 'http://docs.meteor.com'
 });
 ~~~
