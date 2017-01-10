@@ -16,7 +16,7 @@ Bazen projenizi tamamladıktan, bazen de projeyi bitirmeden kademeli olarak dün
 
 Eğer ilk gruptaysanız ve yerel olarak projenizi bitirmeden uygulamanızı dünya ile paylaşmayı düşünmüyorsanız bu bölümü şimdilik atlayabilirsiniz. Fakat eğer diğer gruptaysanız ve Meteor uygulamanızı nasıl dağıtabileceğinizi (yayınlayabileceğinizi) öğrenmek istiyorsanız okumaya devam edebilirsiniz.
 
-Burada bir Meteor uygulamasının nasıl dağıtılabileceğini bir kaç değişik yöntem kullanarak öğreneceğiz. İster Microscope, ister başka bir Meteor uygulaması üzerinde çalışıyor olun, uygulamanızı geliştirirken bu yöntemleri denemeye çalışın. 
+Burada bir Meteor uygulamasının nasıl kurulabileceğini bir kaç değişik yöntem kullanarak öğreneceğiz. İster Microscope, ister başka bir Meteor uygulaması üzerinde çalışıyor olun, uygulamanızı geliştirirken bu yöntemleri denemeye çalışın. 
 
 Şimdi başlıyoruz.
 
@@ -30,195 +30,22 @@ Eğer Microscope uygulamanızı geliştirmeye devam etmeyi tercih ederseniz bu b
 
 <% end %>
 
-### Deploying On Meteor
+### Heroku üzerinde kurulum
 
-////
+[Heroku](http://www.heroku.com), Meteor uygulumanızı hızlı (ve ücretsiz) bir şekilde kurmanızı sağlayan bir servis sağlayıcıdır. Bunun için [Horse buildpack](https://github.com/AdmitHub/meteor-buildpack-horse) adı verilen bir kurulum mekanizması kullanılır.
 
-////
+Adım adım açıklama için [readme](https://github.com/AdmitHub/meteor-buildpack-horse)  dosyasına göz atabilirsiniz.
 
-~~~bash
-$ meteor deploy myapp.meteor.com
-~~~
+### Galaxy üzerinde kurulum
 
-////
+[Galaxy](https://www.meteor.com/hosting), Meteor Geliştirme Grubu'nun resmi hosting platformudur, ve Meteor komut satırı aracı yardımıyla `meteor deploy` komutu kullanılarak hızlı kurulum amacıyla geliştirilmiştir. 
 
-////
+Şu aşamada Galaxy'nin ücretsiz servisi bulunmamaktadır, fakat uygulamanız hazır olduğunda kurulum için en uygun platformlardan biridir.
 
-### Password Protection
+Meteor Geliştirme Grubu, daha önce “Meteor hosting” adıyla bilinen ücretsiz servis hizmeti vermekteydi, fakat Mart 2016 itibariyle maalesef bu servis kaldırılmıştır.
 
-////
+### MupX ile kurulum
 
-~~~~bash
-$ meteor deploy myapp.meteor.com -p
-~~~~
+Son olarak, eğer kendi sunucularınız üzerinde kurulum yapmayı tercih ederseniz, [MupX](https://github.com/arunoda/meteor-up/tree/mupx) adında kolay kullanımlı Docker kurulum scripti ile uygulamanızı Digital Ocean ve AWS gibi sunucu sağlayıcılara kurabilirsiniz.
 
-////
-
-////
-
-### Deploying On Modulus
-
-////
-
-<% note do %>
-
-### Demeteorizer
-
-////
-
-<% end %>
-
-////
-
-~~~bash
-$ npm install -g modulus
-~~~
-
-////
-
-~~~bash
-$ modulus login
-~~~
-
-////
-
-~~~bash
-$ modulus project create
-~~~
-
-////
-
-////
-
-~~~bash
-$ modulus env set MONGO_URL "mongodb://<user>:<pass>@mongo.onmodulus.net:27017/<database_name>"
-~~~
-
-////
-
-~~~bash
-$ modulus deploy
-~~~
-
-////
-
-### Meteor Up
-
-////
-
-////
-
-////
-
-////
-
-### Initializing Meteor Up
-
-////
-
-~~~bash
-$ npm install -g mup
-~~~
-
-////
-
-////
-
-////
-
-~~~bash
-$ mkdir ~/microscope-deploy
-$ cd ~/microscope-deploy
-$ mup init
-~~~
-
-<% note do %>
-
-### Sharing with Dropbox
-
-////
-
-<% end %>
-
-### Meteor Up Configuration
-
-////
-
-////
-
-////
-
-~~~js
-{
-  //server authentication info
-  "servers": [{
-    "host": "hostname",
-    "username": "root",
-    "password": "password"
-    //or pem file (ssh based authentication)
-    //"pem": "~/.ssh/id_rsa"
-  }],
-
-  //install MongoDB in the server
-  "setupMongo": true,
-
-  //location of app (local directory)
-  "app": "/path/to/the/app",
-
-  //configure environmental
-  "env": {
-    "ROOT_URL": "http://supersite.com"
-  }
-}
-~~~
-<%= caption "mup.json" %>
-
-////
-
-**Server Authentication**
-
-////
-
-////
-
-**MongoDB Configuration**
-
-////
-
-////
-
-**Meteor App Path**
-
-////
-
-**Environment Variables**
-
-////
-
-### Setting Up and Deploying
-
-////
-
-~~~bash
-$ mup setup
-~~~
-
-////
-
-~~~bash
-$ mup deploy
-~~~
-
-////
-
-### Displaying Logs
-
-////
-
-~~~bash
-$ mup logs -f
-~~~
-
-////
-
-////
+Yukarıda saydığımız üç yol Meteor uygulamanızın hayata geçmesi için yeterlidir. Tabiiki bazılarınız Meteor sunucunuz ve uygulamanız üzerinde tam hakimiyet kurmayı tercih edebilir, uygulamanızı sıfırdan oluşturmak ve kurmak isteyebilirsiniz. Fakat bu, başka bir günün, hatta belkide başka bir kitabın konusu olabilir!
