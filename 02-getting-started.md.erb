@@ -3,8 +3,11 @@ title: Başlarken
 slug: getting-started
 date: 0002/01/01
 number: 2
-contents: Meteor Kurulumu. | Meteor paketlerinin 5 farklı tipini öğreniyoruz. | Meteor uygulamanızın dosya yapısını ayarlayalım.
+contents: >-
+  Meteor Kurulumu. | Meteor paketlerinin 5 farklı tipini öğreniyoruz. | Meteor
+  uygulamanızın dosya yapısını ayarlayalım.
 paragraphs: 49
+published: true
 ---
 
  İlk izlenimler her zaman çok önemlidir, ve Meteor'un kurulumu da nispeten sancısız olmalı. Çoğu durumda uygulamanın kurulumu ve ayağa kalkması 5 dakikadan daha kısa sürer.
@@ -43,9 +46,14 @@ Bu komut meteoru indirecek ve basit kurulumunu hazırlayacak. Herşey tamamland�
 
 ~~~bash
  .meteor
-microscope.css
-microscope.html
-microscope.js
+ client
+ | main.css
+ | main.html
+ | main.js
+ server
+ | main.js
+ .gitignore
+ package.json
 ~~~
 
 Meteor tarafından oluşturulan bu basit uygulama aslında size basit bir Meteor uygulamasının parçalarını gösteren bir boilerplate (örnek) uygulamadır.
@@ -73,7 +81,7 @@ Eğer Git kullanıyorsanız, uygulamanızı repo ya sabitlemek için tam zamanı
 
 Bir zamanlar Meteor projesi Meteorite isimli harici bir paket yöneticisi kullanıyordu. Meteor versiyon 0.9.0 dan beri, bu araç Meteor'un içine gömüldüğü için harici bir paket yöneticisine gerek kalmamıştır.
 
-Eğer bu kitap boyunca Meteorite'nin `mrt` komut satırı aracı ile ilgili herhangi bir referansa rastlarsanız, bu komutu güvenli bir şekilde `meteor` komutu ile değiştirebilirsiniz.
+Eğer Meteor ile ilgili materyallere göz atarken Meteorite'nin `mrt` komut satırı aracı ile ilgili herhangi bir referansa rastlarsanız, bu komutu güvenli bir şekilde `meteor` komutu ile değiştirebilirsiniz.
 
 <% end %>
 
@@ -92,6 +100,14 @@ meteor add twbs:bootstrap
 
 Burada kullandığımız Bootstrap versiyon 3 tür, fakat bazı ekran görüntüleri eski versiyon Meteorite kullanılarak hazırlandığından Bootstrap versiyon 2 ye ait olup biraz farklı görünebilir.
 
+Aynı zamanda daha sonra çok işimize yarayacak olan [Session](http://docs.meteor.com/#/full/session) paketini de ekleyeceğiz:
+ 
+ ~~~bash
+ meteor add session
+ ~~~
+ 
+ Session paketi ilk-parti Meteor paketi olmasına rağmen, yeni Meteor uygulamaları için default olarak geçerli kılınmamıştır, bunu manuel olarak yapmamız gerekir. 
+ 
 Şimdi oluşturduğumuz projemizde hangi paketleri kullandığımızı öğrenmek için tam zamanı. Aşağıda görüldüğü gibi, biraz önce eklediğimiz pakete ek olarak, Meteor varsayılan birkaç paketle yüklü olarak geliyor. Bunları öğrenmek için `.meteor` dizinindeki `versions` dosyasının içeriğine bakalım:
 
 ```
@@ -105,16 +121,21 @@ meteor-base             # Packages every Meteor app needs to have
 mobile-experience       # Packages for a great mobile UX
 mongo                   # The database Meteor supports right now
 blaze-html-templates    # Compile .html files into Meteor Blaze views
+reactive-var			# Tracker için Reactive değişkeni
 session                 # Client-side reactive dictionary for your app
 jquery                  # Helpful client-side library
 tracker                 # Meteor's client-side reactive programming library
 
-standard-minifiers      # JS/CSS minifiers run for production mode
+standard-minifier-css   # CSS minifier run for production mode
+standard-minifier-js	# JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
+
+session
+
 twbs:bootstrap
 ```
 
@@ -130,6 +151,29 @@ Bootstrap paketini ekler eklemez basit uygulamamızın görünümünün değişt
 
 Gördüğünüz gibi klasik yöntemle sayfamıza veya sayfalarımıza stil ve script dosyalarını elle eklemedik. Bu işi Meteor'un bizim yerimize kolayca yaptığını gördük. Bu, Meteor paketleri kullanmanın avantajlarından sadece biri.
 
+### NPM Paketleri
+
+Paketlerden bahsetmişken, repo muzda package.json dosyasını görmüşsünüzdür:
+
+~~~js
+ {
+   "name": "microscope",
+   "private": true,
+   "scripts": {
+     "start": "meteor run"
+   },
+   "dependencies": {
+     "meteor-node-stubs": "~0.2.0"
+   }
+ }
+ +~~~
+
+Bu dosya NPM den indirilmesi gereken paketleri konuşlandırmak için kullanılır, aynen `.meteor/packages` dosyasının Meteor tarafından indirilmesi gereken paketleri konuşlandırması gibi. Aralarındaki en büyük fark, NPM in `package.json` dosyasını otomatik olarak işlememesidir. NPM için paket ekleyip çıkarırken bunu manuel olarak  yapmanız gerekir:
+
+~~~bash
+ npm install
+~~~
+
 <% note do %>
 
 ### Paketler konusunda bir not
@@ -140,17 +184,17 @@ Meteor paketlerinden bahsederken, Meteor'a özgü bazı önemli konuları ele al
 - **İlk parti paketleri** Meteor'la birlikte gelirler. Bunlardan bazıları, `mongo` ve `session`, yeni uygulamarın içine varsayılan paketler olarak konulur, ancak ihtiyaç olmadığı durumlarda silinebilir. `check` ve `http` paketleri ise tam tersine mutlaka gereklidir.
 - **Yerel paketler** uygulamanıza özeldir ve yerel dosya sisteminizde `/packages` dizininde bulunurlar.
 - **Atmosphere paketleri** Meteor'un online paket reposu olan [Atmosphere](http://atmosphere.meteor.com) sisteminde yayınlanan özel isteğe bağlı üçüncü parti paketleridir. Bu paketlerin tümü `yaratıcı_adı:paket_adı` isimlendirmesi taşırlar.
-- Son olarak, **NPM paketleri** Node.js paketleridir. Uygulamanızın paket listesine direkt olarak dahil olamazlar, onun yerine indirilip (import edilip) Meteor'un yerel paketleri veya Atmosphere paketleri içerisinden kullanılabilirler.
+- Son olarak, **NPM paketleri** Node.js paketleridir. Uygulamanızın paket listesine  dahil olamazlar, onun yerine uygulamanızın `package.json` dosyası içerisinde listelenirler.
 
 <% end %>
 
 ### Meteor uygulamaları için dosya yapısı
 
-Kod yazmaya başlamadan önce projemizi doğru bir şekilde oluşturmalıyız. Bundan dolayı temiz bir build e sahip olmak için `microscope` dizinindeki `microscope.html`, `microscope.js` ve `microscope.css` dosyalarını silelim.
+Kod yazmaya başlamadan önce projemizi doğru bir şekilde oluşturmalıyız. Bundan dolayı temiz bir build e sahip olmak için `client` dizinindeki `main.html` ve `main.js` dosyalarını, `server` dizinindeki `main.js` dosyalarını silelim.
 
-Sonraki adımda, `/microscope` dizini altında dört yeni dizin oluşturalım: `/client`, `/server`, `/public`, ve `/lib`.
+Sonraki adımda, `/microscope` dizini altında iki yeni dizin oluşturalım: `/public`  ve `/lib`.
 
-Daha sonra, `/client` dizini altında boş `main.html` ve `main.js` dosyaları oluşturalım. Uygulamanız bu aşamada çalışmasa da sorun değil, bir sonraki bölümde bu dosyaların içini dolduracağız.
+Uygulamanız bu aşamada çalışmasa da sorun değil, bir sonraki bölümde bu dosyaların içini dolduracağız.
 
 Biraz önce oluşturduğumuz dizinlerin bazılarının özel olduğunu söylememiz lazım. Sebebi, Meteor kodları çalışırken bazı kurallara uyar:
 
@@ -365,7 +409,7 @@ body {
   pointer-events: auto;
 }
 ~~~
-<%= caption "client/stylesheets/style.css" %>
+<%= caption "client/main.css" %>
 
 <%= commit "2-3","Dosya yapısı yeniden düzenlendi." %>
 
